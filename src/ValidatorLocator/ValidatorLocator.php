@@ -39,14 +39,14 @@ class ValidatorLocator
         return $this->cache[$name];
     }
 
-    protected function locateDefault(string $name): ?Validator
+    protected function locateDefault(string $name): Validator
     {
 
         $fqcn = "\\PASVL\\Validator\\" . ucfirst($name) . "Validator";
         return class_exists($fqcn) ? new $fqcn : null;
     }
 
-    protected function locate(string $name): ?object
+    protected function locate(string $name): object
     {
         // to be overridden in your own ValidatorLocator implementation (if any)
         return null;
